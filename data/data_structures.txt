@@ -1,0 +1,96 @@
+==============
+AGES
+==============
+
+[
+    {
+        cases: Integer
+        deaths: Integer
+
+        db: {
+            cases: Integer
+            deaths: Integer
+        }
+
+        ri: {}
+        bp: {}
+
+        time_affected: [
+            { cases, deaths, db, ri, bp }
+        ],
+
+        zones: [
+            { cases, deaths, db, ri, bp }
+        ]
+    }
+]
+
+
+
+
+
+=============
+TIME INFECTED
+==============
+
+[
+    {
+        cases: Integer
+        deaths: Integer
+
+        db: {
+            cases: Integer
+            deaths: Integer
+        }
+
+        ri: {}
+        bp: {}
+
+        ages: [
+            { cases, deaths, db, ri, bp }
+        ],
+
+        zones: [
+            { cases, deaths, db, ri, bp }
+        ]
+    }
+]
+
+
+
+
+
+==============
+ZONES
+==============
+
+[
+    {
+        cases: Integer
+        deaths: Integer
+        population: Integer
+
+        db: {
+            cases: Integer
+            deaths: Integer
+        }
+
+        ri: {}
+        bp: {}
+
+        time_affected: [
+            { cases, deaths, db, ri, bp }
+        ],
+
+        ages: [
+            { cases, deaths, db, ri, bp }
+        ]
+    }
+]
+
+
+
+
+
+
+
