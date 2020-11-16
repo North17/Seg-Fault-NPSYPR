@@ -1,0 +1,66 @@
+<x>-<y>-<percentage>-<zone>-<time>
+
+===========================================================================
+
+<x> - one digit code for x-axis (independant variable)
+possible values:
+0 - age
+1 - time infected
+2 - population density
+
+
+
+===========================================================================
+
+
+<y> - y-axis
+several bunches of 6 digits separated by either 'm' multiply (numerator) or 'd' divide (denominator)
+format: <quantity><age-start><age-end><condition>
+
+
+<quantity>:
+0 - cases
+1 - deaths
+
+<age-start>: two digit lower limit for age (included)
+<age-end>: two digit upper limit for age (not included)
+
+<condition>:
+0 - no condition
+1 - db
+2 - ri
+3 - bp
+4 - db + ri
+5 - ri + bp
+6 - db + bp
+7 - db + ri + bp
+
+
+
+===========================================================================
+
+
+
+<percentage> - either 0 or 1
+0 - does not make y-axis a percentage
+1 - makes y-axis percentage (multiplies it by 100)
+
+
+===========================================================================
+
+
+<zone> - three digit number
+
+400 - all zones
+xxx - between 0 and 399, one specific zone
+
+
+
+===========================================================================
+
+
+<time> - <time-start><time-end>
+three digits each, lower limit included, upper limit not included.
+
+
+===========================================================================
