@@ -9,23 +9,13 @@ def write_ages():
     ages = []
 
     empty = {
-        'cases': 0,
-        'deaths': 0,
+        'total': [0, 0],
 
-        'db': {
-            'cases': 0,
-            'deaths': 0,
-        },
+        'db': [0, 0],
 
-        'ri': {
-            'cases': 0,
-            'deaths': 0,
-        },
+        'ri': [0, 0],
 
-        'bp': {
-            'cases': 0,
-            'deaths': 0,
-        },
+        'bp': [0, 0],
 
         'time_infected': [],
         'zones': []
@@ -33,44 +23,24 @@ def write_ages():
 
     for i in range(239):
         empty['time_infected'].append({
-            'cases': 0,
-            'deaths': 0,
+            'total': [0, 0],
 
-            'db': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'db': [0, 0],
 
-            'ri': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'ri': [0, 0],
 
-            'bp': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'bp': [0, 0],
         })
 
     for i in range(400):
         empty['zones'].append({
-            'cases': 0,
-            'deaths': 0,
+            'total': [0, 0],
 
-            'db': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'db': [0, 0],
 
-            'ri': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'ri': [0, 0],
 
-            'bp': {
-                'cases': 0,
-                'deaths': 0,
-            },
+            'bp': [0, 0],
         })
 
     for i in range(90):
@@ -89,38 +59,38 @@ def write_ages():
 
         time = i['Time of Infection']
 
-        ages[age]['cases'] += 1
-        ages[age]['time_infected'][time]['cases'] += 1
-        ages[age]['zones'][zone]['cases'] += 1
+        ages[age]['total'][0] += 1
+        ages[age]['time_infected'][time]['total'][0] += 1
+        ages[age]['zones'][zone]['total'][0] += 1
         
-        ages[age]['db']['cases'] += db
-        ages[age]['time_infected'][time]['db']['cases'] += db
-        ages[age]['zones'][zone]['db']['cases'] += db
+        ages[age]['db'][0] += db
+        ages[age]['time_infected'][time]['db'][0] += db
+        ages[age]['zones'][zone]['db'][0] += db
         
-        ages[age]['ri']['cases'] += ri
-        ages[age]['time_infected'][time]['ri']['cases'] += ri
-        ages[age]['zones'][zone]['ri']['cases'] += ri
+        ages[age]['ri'][0] += ri
+        ages[age]['time_infected'][time]['ri'][0] += ri
+        ages[age]['zones'][zone]['ri'][0] += ri
         
-        ages[age]['bp']['cases'] += bp
-        ages[age]['time_infected'][time]['bp']['cases'] += bp
-        ages[age]['zones'][zone]['bp']['cases'] += bp
+        ages[age]['bp'][0] += bp
+        ages[age]['time_infected'][time]['bp'][0] += bp
+        ages[age]['zones'][zone]['bp'][0] += bp
 
         if dead: 
-            ages[age]['deaths'] += 1
-            ages[age]['time_infected'][time]['deaths'] += 1
-            ages[age]['zones'][zone]['deaths'] += 1
+            ages[age]['total'][1] += 1
+            ages[age]['time_infected'][time]['total'][1] += 1
+            ages[age]['zones'][zone]['total'][1] += 1
             
-            ages[age]['db']['deaths'] += db
-            ages[age]['time_infected'][time]['db']['deaths'] += db
-            ages[age]['zones'][zone]['db']['deaths'] += db
+            ages[age]['db'][1] += db
+            ages[age]['time_infected'][time]['db'][1] += db
+            ages[age]['zones'][zone]['db'][1] += db
 
-            ages[age]['ri']['deaths'] += ri
-            ages[age]['time_infected'][time]['ri']['deaths'] += ri
-            ages[age]['zones'][zone]['ri']['deaths'] += ri
+            ages[age]['ri'][1] += ri
+            ages[age]['time_infected'][time]['ri'][1] += ri
+            ages[age]['zones'][zone]['ri'][1] += ri
         
-            ages[age]['bp']['deaths'] += bp
-            ages[age]['time_infected'][time]['bp']['deaths'] += bp
-            ages[age]['zones'][zone]['bp']['deaths'] += bp
+            ages[age]['bp'][1] += bp
+            ages[age]['time_infected'][time]['bp'][1] += bp
+            ages[age]['zones'][zone]['bp'][1] += bp
 
 
     with open('ages.py', 'w') as f:
