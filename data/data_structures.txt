@@ -15,7 +15,7 @@ AGES
         ri: {}
         bp: {}
 
-        time_affected: [
+        time_infected: [
             { cases, deaths, db, ri, bp }
         ],
 
@@ -78,7 +78,7 @@ ZONES
         ri: {}
         bp: {}
 
-        time_affected: [
+        time_infected: [
             { cases, deaths, db, ri, bp }
         ],
 
