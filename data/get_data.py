@@ -13,3 +13,18 @@ def get(x, zone):
             ages = get_ages(x,y)
 
             return ages
+
+    elif x == 1:
+        if zone == 400:
+            from data.time_infected import time_infected
+            return time_infected
+        else:
+            x = zone%20 + 1
+            y = zone//20 + 1
+
+            from data.organise_data import get_time_infected
+            time_infected = get_time_infected(x,y)
+            
+            return time_infected
+    
+
