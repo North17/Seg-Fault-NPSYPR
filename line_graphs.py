@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from data import ages
 
-ctrstr = "0-07-189-2040-050101"
+ctrstr = "0-07d00-189-2040-050101"
 
 params = ctrstr.split('-')
 
@@ -119,21 +119,21 @@ else:
     for i in x_axis:
          if y2q == 0:
             if y2c == 0:
-                num.append(ages.ages[i]['total'][0])
+                denom.append(ages.ages[i]['total'][0])
             if y2c == 1:
-                num.append(ages.ages[i]['db'][0])
+                denom.append(ages.ages[i]['db'][0])
             if y2c == 2:
-                num.append(ages.ages[i]['ri'][0])
+                denom.append(ages.ages[i]['ri'][0])
             if y2c == 3:
-                num.append(ages.ages[i]['bp'][0])
+                denom.append(ages.ages[i]['bp'][0])
             if y2c == 4:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0])
+                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0])
             if y2c == 5:
-                num.append(ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
+                denom.append(ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
             if y2c == 6:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['bp'][0])
+                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['bp'][0])
             if y2c == 7:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
+                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
          elif y2q == 1:
             if y2c == 0:
                 denom.append(ages.ages[i]['total'][1])
@@ -152,8 +152,10 @@ else:
             if y2c == 7:
                 denom.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])   
 
+#finding list for percentage
+for i in range(len(x_axis)):
+    y_axis.append((num[i]/denom[i])*100)
 
-
-
+print(y_axis)
 plt.plot(x_axis,y_axis)
 plt.show()
