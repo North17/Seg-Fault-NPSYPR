@@ -26,5 +26,9 @@ def get(x, zone):
             time_infected = get_time_infected(x,y)
             
             return time_infected
+
+    elif x == 2:
+        from data.population_density import population_density
+        return population_density
     
 
