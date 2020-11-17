@@ -1,0 +1,42 @@
+Fatality rate over age:
+0-100900d000900-1-400-000239
+
+Fatality rate of diabetics over age:
+0-100901d000901-1-400-000239
+
+Fatality rate of diabetics in first 100 days over age:
+0-100901d000901-1-400-000101
+
+Fatality rate of diabetics on day 25 in zone 30 over age:
+0-100901d000901-1-30-025026
+
+Fatality rate of people with BP over time:
+1-100903d000903-1-400-000239
+
+Fatality rate of people aged 30-50 with RI in zone 52 over time:
+1-130512d030512-1-52-000239
+
+Cases over time:
+1-000900-0-400-000239
+
+Cases over age:
+0-000900-0-400-000239
+
+Fatalities during days 25-50 over age:
+0-100900-0-400-2551
+
+Fatalties of 60 year olds over time:
+1-160610-0-400-000239
+
+Infection rate over population density:
+2-000900d200900-1-400-000239
+
+Infection rate during the days 50-250 over population density:
+2-000900d200900-1-400-050251 
+
+Fatality rate over population density:
+2-100900d000900-1-400-000239
+
+Fatality rate of diabetics during the first 20 days over population density:
+2-100901d000901-1-400-000021
+
