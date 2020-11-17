@@ -14,10 +14,6 @@ AGES
         time_infected: [
             { total, db, ri, bp }
         ],
-
-        zones: [
-            { total, db, ri, bp }
-        ]
     }
 ]
 
