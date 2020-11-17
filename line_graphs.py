@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from data import ages
 
-ctrstr = "0-07d00-189-2040-050101"
+ctrstr = "0-01d00-189-2040-050101"
 
 params = ctrstr.split('-')
 
@@ -56,13 +56,9 @@ if percbool == False:
             if yc == 3:
                 y_axis.append(ages.ages[i]['bp'][0])
             if yc == 4:
-                y_axis.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0])
+                y_axis.append(ages.ages[i]['two'][0] )
             if yc == 5:
-                y_axis.append(ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
-            if yc == 6:
-                y_axis.append(ages.ages[i]['db'][0] + ages.ages[i]['bp'][0])
-            if yc == 7:
-                y_axis.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
+                y_axis.append(ages.ages[i]['three'][0])
         elif yq == 1:
             if yc == 0:
                 y_axis.append(ages.ages[i]['total'][1])
@@ -73,84 +69,37 @@ if percbool == False:
             if yc == 3:
                 y_axis.append(ages.ages[i]['bp'][1])
             if yc == 4:
-                y_axis.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1])
+                y_axis.append(ages.ages[i]['two'][1] + ages.ages[i]['ri'][1])
             if yc == 5:
-                y_axis.append(ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])
-            if yc == 6:
-                y_axis.append(ages.ages[i]['db'][1] + ages.ages[i]['bp'][1])
-            if yc == 7:
-                y_axis.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])
+                y_axis.append(ages.ages[i]['three'][1] + ages.ages[i]['bp'][1])
 else:
     for i in x_axis:
-        if y1q == 0:
-            if y1c == 0:
-                num.append(ages.ages[i]['total'][0])
-            if y1c == 1:
-                num.append(ages.ages[i]['db'][0])
-            if y1c == 2:
-                num.append(ages.ages[i]['ri'][0])
-            if y1c == 3:
-                num.append(ages.ages[i]['bp'][0])
-            if y1c == 4:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0])
-            if y1c == 5:
-                num.append(ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
-            if y1c == 6:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['bp'][0])
-            if y1c == 7:
-                num.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
-        elif y1q == 1:
-            if y1c == 0:
-                num.append(ages.ages[i]['total'][1])
-            if y1c == 1:
-                num.append(ages.ages[i]['db'][1])
-            if y1c == 2:
-                num.append(ages.ages[i]['ri'][1])
-            if y1c == 3:
-                num.append(ages.ages[i]['bp'][1])
-            if y1c == 4:
-                num.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1])
-            if y1c == 5:
-                num.append(ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])
-            if y1c == 6:
-                num.append(ages.ages[i]['db'][1] + ages.ages[i]['bp'][1])
-            if y1c == 7:
-                num.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])
+        if y1c == 0:
+            num.append(ages.ages[i]['total'][y1q])
+        if y1c == 1:
+            num.append(ages.ages[i]['db'][y1q])
+        if y1c == 2:
+            num.append(ages.ages[i]['ri'][y1q])
+        if y1c == 3:
+            num.append(ages.ages[i]['bp'][y1q])
+        if y1c == 4:
+            num.append(ages.ages[i]['two'][y1q])
+        if y1c == 5:
+            num.append(ages.ages[i]['three'][y1q])
     for i in x_axis:
-         if y2q == 0:
-            if y2c == 0:
-                denom.append(ages.ages[i]['total'][0])
-            if y2c == 1:
-                denom.append(ages.ages[i]['db'][0])
-            if y2c == 2:
-                denom.append(ages.ages[i]['ri'][0])
-            if y2c == 3:
-                denom.append(ages.ages[i]['bp'][0])
-            if y2c == 4:
-                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0])
-            if y2c == 5:
-                denom.append(ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
-            if y2c == 6:
-                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['bp'][0])
-            if y2c == 7:
-                denom.append(ages.ages[i]['db'][0] + ages.ages[i]['ri'][0] + ages.ages[i]['bp'][0])
-         elif y2q == 1:
-            if y2c == 0:
-                denom.append(ages.ages[i]['total'][1])
-            if y2c == 1:
-                denom.append(ages.ages[i]['db'][1])
-            if y2c == 2:
-                denom.append(ages.ages[i]['ri'][1])
-            if y2c == 3:
-                denom.append(ages.ages[i]['bp'][1])
-            if y2c == 4:
-                denom.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1])
-            if y2c == 5:
-                denom.append(ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])
-            if y2c == 6:
-                denom.append(ages.ages[i]['db'][1] + ages.ages[i]['bp'][1])
-            if y2c == 7:
-                denom.append(ages.ages[i]['db'][1] + ages.ages[i]['ri'][1] + ages.ages[i]['bp'][1])   
+        if y2c == 0:
+            denom.append(ages.ages[i]['total'][y2q])
+        if y2c == 1:
+            denom.append(ages.ages[i]['db'][y2q])
+        if y2c == 2:
+            denom.append(ages.ages[i]['ri'][y2q])
+        if y2c == 3:
+            denom.append(ages.ages[i]['bp'][y2q])
+        if y2c == 4:
+            denom.append(ages.ages[i]['two'][y2q])
+        if y2c == 5:
+            denom.append(ages.ages[i]['three'][y2q])
+        
 
 #finding list for percentage
 for i in range(len(x_axis)):
