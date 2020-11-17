@@ -46,32 +46,19 @@ denom = []
 #for single parameter:
 if percbool == False:
     for i in x_axis:
-        if yq == 0:
-            if yc == 0:
-                y_axis.append(ages.ages[i]['total'][0])
-            if yc == 1:
-                y_axis.append(ages.ages[i]['db'][0])
-            if yc == 2:
-                y_axis.append(ages.ages[i]['ri'][0])
-            if yc == 3:
-                y_axis.append(ages.ages[i]['bp'][0])
-            if yc == 4:
-                y_axis.append(ages.ages[i]['two'][0] )
-            if yc == 5:
-                y_axis.append(ages.ages[i]['three'][0])
-        elif yq == 1:
-            if yc == 0:
-                y_axis.append(ages.ages[i]['total'][1])
-            if yc == 1:
-                y_axis.append(ages.ages[i]['db'][1])
-            if yc == 2:
-                y_axis.append(ages.ages[i]['ri'][1])
-            if yc == 3:
-                y_axis.append(ages.ages[i]['bp'][1])
-            if yc == 4:
-                y_axis.append(ages.ages[i]['two'][1] + ages.ages[i]['ri'][1])
-            if yc == 5:
-                y_axis.append(ages.ages[i]['three'][1] + ages.ages[i]['bp'][1])
+        if yc == 0:
+            y_axis.append(ages.ages[i]['total'][yq])
+        if yc == 1:
+            y_axis.append(ages.ages[i]['db'][yq])
+        if yc == 2:
+            y_axis.append(ages.ages[i]['ri'][yq])
+        if yc == 3:
+            y_axis.append(ages.ages[i]['bp'][yq])
+        if yc == 4:
+            y_axis.append(ages.ages[i]['two'][yq])
+        if yc == 5:
+            y_axis.append(ages.ages[i]['three'][yq])
+       
 else:
     for i in x_axis:
         if y1c == 0:
