@@ -7,12 +7,14 @@ AGES
         total: [cases, deaths]
 
         db: [cases, deaths]
-
         ri: []
         bp: []
 
+        two: []
+        three: []
+
         time_infected: [
-            { total, db, ri, bp }
+            { total, db, ri, bp, two, three }
         ],
     }
 ]
@@ -30,12 +32,14 @@ TIME INFECTED
         total: [cases, deaths]
 
         db: []
-
         ri: []
         bp: []
+        
+        two: []
+        three: []
 
         ages: [
-            { total, db, ri, bp }
+            { total, db, ri, bp, two, three }
         ]
     }
 ]
@@ -54,16 +58,18 @@ ZONES
         population: Integer
 
         db: []
-
         ri: []
         bp: []
+        
+        two: []
+        three: []
 
         time_infected: [
-            { total, db, ri, bp }
+            { total, db, ri, bp, two, three }
         ],
 
         ages: [
-            { total, db, ri, bp }
+            { total, db, ri, bp, two, three }
         ]
     }
 ]

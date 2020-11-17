@@ -29,6 +29,9 @@ def get_ages(x = False, y = False):
 
         'bp': [0, 0],
 
+        'two': [0, 0],
+        'three': [0, 0],
+
         'time_infected': [],
         # 'zones': []
     }
@@ -42,6 +45,9 @@ def get_ages(x = False, y = False):
             'ri': [0, 0],
 
             'bp': [0, 0],
+                
+            'two': [0, 0],
+            'three': [0, 0],
         })
 
     
@@ -68,6 +74,9 @@ def get_ages(x = False, y = False):
         bp = int(i['Abnormal Blood Pressure'])
         dead = i['Outcome'] == 'Dead'
 
+        two = int((db and ri) or (ri and bp) or (db and bp))
+        three = int(db and ri and bp)
+
         # x = i['x location']
         # y = i['y location']
         # zone = 20*y + x - 21
@@ -89,6 +98,15 @@ def get_ages(x = False, y = False):
         ages[age]['bp'][0] += bp
         ages[age]['time_infected'][time]['bp'][0] += bp
         # ages[age]['zones'][zone]['bp'][0] += bp
+        
+        ages[age]['three'][0] += three
+        ages[age]['time_infected'][time]['three'][0] += three
+        # ages[age]['zones'][zone]['bp'][0] += bp
+
+        
+        ages[age]['bp'][0] += bp
+        ages[age]['time_infected'][time]['bp'][0] += bp
+        # ages[age]['zones'][zone]['bp'][0] += bp
 
         if dead: 
             ages[age]['total'][1] += 1
@@ -105,6 +123,14 @@ def get_ages(x = False, y = False):
         
             ages[age]['bp'][1] += bp
             ages[age]['time_infected'][time]['bp'][1] += bp
+            # ages[age]['zones'][zone]['bp'][1] += bp
+            
+            ages[age]['two'][1] += two
+            ages[age]['time_infected'][time]['two'][1] += two
+            # ages[age]['zones'][zone]['bp'][1] += bp
+            
+            ages[age]['three'][1] += three
+            ages[age]['time_infected'][time]['three'][1] += three
             # ages[age]['zones'][zone]['bp'][1] += bp
 
     
@@ -134,6 +160,9 @@ def get_time_infected(x = False, y = False):
 
         'bp': [0, 0],
 
+        'two': [0, 0],
+        'three': [0, 0],
+
         'ages': [],
     }
 
@@ -143,6 +172,8 @@ def get_time_infected(x = False, y = False):
             'db': [0, 0],
             'ri': [0, 0], 
             'bp': [0, 0],
+            'two': [0, 0],
+            'three': [0, 0],
         })
 
     for i in range(239):
@@ -156,6 +187,9 @@ def get_time_infected(x = False, y = False):
         ri = int(i['Respiratory Illnesses'])
         bp = int(i['Abnormal Blood Pressure'])
         dead = i['Outcome'] == 'Dead'
+        
+        two = int((db and ri) or (ri and bp) or (db and bp))
+        three = int(db and ri and bp)
 
         time_infected[time]['total'][0] += 1
         time_infected[time]['ages'][age]['total'][0] += 1
@@ -168,6 +202,12 @@ def get_time_infected(x = False, y = False):
 
         time_infected[time]['bp'][0] += bp
         time_infected[time]['ages'][age]['bp'][0] += bp
+        
+        time_infected[time]['two'][0] += two
+        time_infected[time]['ages'][age]['two'][0] += two
+        
+        time_infected[time]['three'][0] += bp
+        time_infected[time]['ages'][age]['three'][0] += three
 
 
         if dead:
@@ -182,6 +222,12 @@ def get_time_infected(x = False, y = False):
 
             time_infected[time]['bp'][1] += bp
             time_infected[time]['ages'][age]['bp'][1] += bp
+
+            time_infected[time]['two'][1] += two
+            time_infected[time]['ages'][age]['two'][1] += two
+
+            time_infected[time]['three'][1] += three
+            time_infected[time]['ages'][age]['three'][1] += three
 
     
     return time_infected
@@ -208,6 +254,9 @@ def get_population_density ():
         'ri': [0, 0],
         'bp': [0, 0],
 
+        'two': [0, 0],
+        'three': [0, 0],
+
         'time_infected': [],
         'ages': [],
     }
@@ -218,6 +267,8 @@ def get_population_density ():
             'db': [0, 0],
             'ri': [0, 0], 
             'bp': [0, 0],
+            'two': [0, 0],
+            'three': [0, 0],
         })
 
     for i in range(239):
@@ -229,6 +280,9 @@ def get_population_density ():
             'ri': [0, 0],
 
             'bp': [0, 0],
+            
+            'two': [0, 0],
+            'three': [0, 0],
         })
 
     for i in cases.iloc:
@@ -250,6 +304,9 @@ def get_population_density ():
         ri = int(i['Respiratory Illnesses'])
         bp = int(i['Abnormal Blood Pressure'])
         dead = i['Outcome'] == 'Dead'
+        
+        two = int((db and ri) or (ri and bp) or (db and bp))
+        three = int(db and ri and bp)
 
         population_density[ind]['total'][0] += 1
         population_density[ind]['time_infected'][time]['total'][0] += 1
@@ -267,6 +324,14 @@ def get_population_density ():
         population_density[ind]['time_infected'][time]['bp'][0] += bp
         population_density[ind]['ages'][age]['bp'][0] += bp
 
+        population_density[ind]['two'][0] += two
+        population_density[ind]['time_infected'][time]['two'][0] += two
+        population_density[ind]['ages'][age]['two'][0] += two
+
+        population_density[ind]['three'][0] += three
+        population_density[ind]['time_infected'][time]['three'][0] += three
+        population_density[ind]['ages'][age]['three'][0] += three
+
         if dead:
             population_density[ind]['total'][1] += 1
             population_density[ind]['time_infected'][time]['total'][1] += 1
@@ -283,6 +348,14 @@ def get_population_density ():
             population_density[ind]['bp'][1] += bp
             population_density[ind]['time_infected'][time]['bp'][1] += bp
             population_density[ind]['ages'][age]['bp'][1] += bp
+
+            population_density[ind]['two'][1] += two
+            population_density[ind]['time_infected'][time]['two'][1] += two
+            population_density[ind]['ages'][age]['two'][1] += two
+
+            population_density[ind]['three'][1] += three
+            population_density[ind]['time_infected'][time]['three'][1] += three
+            population_density[ind]['ages'][age]['three'][1] += three
 
     sorting_func = lambda x: x['population']
     population_density.sort(key=sorting_func)
