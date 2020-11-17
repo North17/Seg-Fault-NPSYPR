@@ -61,8 +61,6 @@ def get_ages(x = False, y = False):
         ages.append(copy.deepcopy(empty))
 
     for i in cases.iloc:
-        if x and y and not(i['x location'] == x and i['y location'] == y):
-            continue
         
         age = i['Age']
         db = int(i['Diabetes'])
@@ -117,8 +115,83 @@ def get_ages(x = False, y = False):
     #     f.write('ages = ')
     #     f.write(str(ages))
 
-def get_time_infected():
-    pass
+def get_time_infected(x = False, y = False):
+
+    cases = cases_csv
+
+    if x and y:
+        cases = cases[cases['x location'] == x]
+        cases = cases[cases['y location'] == y]
+
+    time_infected = []
+
+    empty = {
+        'total': [0, 0],
+
+        'db': [0, 0],
+
+        'ri': [0, 0],
+
+        'bp': [0, 0],
+
+        'ages': [],
+    }
+
+    for i in range(90):
+        empty['ages'].append({
+            'total': [0, 0],
+            'db': [0, 0],
+            'ri': [0, 0], 
+            'bp': [0, 0],
+        })
+
+    for i in range(239):
+        time_infected.append(copy.deepcopy(empty))
+
+    for i in cases.iloc:
+
+        age = i['Age']
+        time = i['Time of Infection']
+        db = int(i['Diabetes'])
+        ri = int(i['Respiratory Illnesses'])
+        bp = int(i['Abnormal Blood Pressure'])
+        dead = i['Outcome'] == 'Dead'
+
+        time_infected[time]['total'][0] += 1
+        time_infected[time]['ages'][age]['total'][0] += 1
+
+        time_infected[time]['db'][0] += db
+        time_infected[time]['ages'][age]['db'][0] += db
+
+        time_infected[time]['ri'][0] += ri
+        time_infected[time]['ages'][age]['ri'][0] += ri
+
+        time_infected[time]['bp'][0] += bp
+        time_infected[time]['ages'][age]['bp'][0] += bp
+
+
+        if dead:
+            time_infected[time]['total'][1] += 1
+            time_infected[time]['ages'][age]['total'][1] += 1
+
+            time_infected[time]['db'][1] += db
+            time_infected[time]['ages'][age]['db'][1] += db
+
+            time_infected[time]['ri'][1] += ri
+            time_infected[time]['ages'][age]['ri'][1] += ri
+
+            time_infected[time]['bp'][1] += bp
+            time_infected[time]['ages'][age]['bp'][1] += bp
+
+    
+    return time_infected
+
+        
+
+
+
+
+
 
 def get_zones():
     pass
