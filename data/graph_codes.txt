@@ -21,6 +21,7 @@ format: <quantity><age-start><age-end><condition>
 <quantity>:
 0 - cases
 1 - deaths
+2 - population density
 
 <age-start>: two digit lower limit for age (included)
 <age-end>: two digit upper limit for age (not included)

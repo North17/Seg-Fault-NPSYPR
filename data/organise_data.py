@@ -61,8 +61,6 @@ def get_ages(x = False, y = False):
         ages.append(copy.deepcopy(empty))
 
     for i in cases.iloc:
-        if x and y and not(i['x location'] == x and i['y location'] == y):
-            continue
         
         age = i['Age']
         db = int(i['Diabetes'])
@@ -117,8 +115,176 @@ def get_ages(x = False, y = False):
     #     f.write('ages = ')
     #     f.write(str(ages))
 
-def get_time_infected():
-    pass
+def get_time_infected(x = False, y = False):
 
-def get_zones():
-    pass
+    cases = cases_csv
+
+    if x and y:
+        cases = cases[cases['x location'] == x]
+        cases = cases[cases['y location'] == y]
+
+    time_infected = []
+
+    empty = {
+        'total': [0, 0],
+
+        'db': [0, 0],
+
+        'ri': [0, 0],
+
+        'bp': [0, 0],
+
+        'ages': [],
+    }
+
+    for i in range(90):
+        empty['ages'].append({
+            'total': [0, 0],
+            'db': [0, 0],
+            'ri': [0, 0], 
+            'bp': [0, 0],
+        })
+
+    for i in range(239):
+        time_infected.append(copy.deepcopy(empty))
+
+    for i in cases.iloc:
+
+        age = i['Age']
+        time = i['Time of Infection']
+        db = int(i['Diabetes'])
+        ri = int(i['Respiratory Illnesses'])
+        bp = int(i['Abnormal Blood Pressure'])
+        dead = i['Outcome'] == 'Dead'
+
+        time_infected[time]['total'][0] += 1
+        time_infected[time]['ages'][age]['total'][0] += 1
+
+        time_infected[time]['db'][0] += db
+        time_infected[time]['ages'][age]['db'][0] += db
+
+        time_infected[time]['ri'][0] += ri
+        time_infected[time]['ages'][age]['ri'][0] += ri
+
+        time_infected[time]['bp'][0] += bp
+        time_infected[time]['ages'][age]['bp'][0] += bp
+
+
+        if dead:
+            time_infected[time]['total'][1] += 1
+            time_infected[time]['ages'][age]['total'][1] += 1
+
+            time_infected[time]['db'][1] += db
+            time_infected[time]['ages'][age]['db'][1] += db
+
+            time_infected[time]['ri'][1] += ri
+            time_infected[time]['ages'][age]['ri'][1] += ri
+
+            time_infected[time]['bp'][1] += bp
+            time_infected[time]['ages'][age]['bp'][1] += bp
+
+    
+    return time_infected
+
+        
+
+
+
+
+
+
+def get_population_density ():
+
+    cases = cases_csv
+
+    density = []
+    population_density = []
+
+    empty = {
+        'population': None,
+
+        'total': [0, 0],
+        'db': [0, 0],
+        'ri': [0, 0],
+        'bp': [0, 0],
+
+        'time_infected': [],
+        'ages': [],
+    }
+
+    for i in range(90):
+        empty['ages'].append({
+            'total': [0, 0],
+            'db': [0, 0],
+            'ri': [0, 0], 
+            'bp': [0, 0],
+        })
+
+    for i in range(239):
+        empty['time_infected'].append({
+            'total': [0, 0],
+
+            'db': [0, 0],
+
+            'ri': [0, 0],
+
+            'bp': [0, 0],
+        })
+
+    for i in cases.iloc:
+        x = i['x location']
+        y = i['y location']
+        pd = pop_csv.iloc[20*(x-1) + y-1]['Population']
+
+        try:
+            ind = density.index(pd)
+        except:
+            ind = len(density)
+            density.append(pd)
+            population_density.append(copy.deepcopy(empty))
+            population_density[ind]['population'] = pd
+
+        age = i['Age']
+        time = i['Time of Infection']
+        db = int(i['Diabetes'])
+        ri = int(i['Respiratory Illnesses'])
+        bp = int(i['Abnormal Blood Pressure'])
+        dead = i['Outcome'] == 'Dead'
+
+        population_density[ind]['total'][0] += 1
+        population_density[ind]['time_infected'][time]['total'][0] += 1
+        population_density[ind]['ages'][age]['total'][0] += 1
+        
+        population_density[ind]['db'][0] += db
+        population_density[ind]['time_infected'][time]['db'][0] += db
+        population_density[ind]['ages'][age]['db'][0] += db
+        
+        population_density[ind]['ri'][0] += ri
+        population_density[ind]['time_infected'][time]['ri'][0] += ri
+        population_density[ind]['ages'][age]['ri'][0] += ri
+
+        population_density[ind]['bp'][0] += bp
+        population_density[ind]['time_infected'][time]['bp'][0] += bp
+        population_density[ind]['ages'][age]['bp'][0] += bp
+
+        if dead:
+            population_density[ind]['total'][1] += 1
+            population_density[ind]['time_infected'][time]['total'][1] += 1
+            population_density[ind]['ages'][age]['total'][1] += 1
+            
+            population_density[ind]['db'][1] += db
+            population_density[ind]['time_infected'][time]['db'][1] += db
+            population_density[ind]['ages'][age]['db'][1] += db
+            
+            population_density[ind]['ri'][1] += ri
+            population_density[ind]['time_infected'][time]['ri'][1] += ri
+            population_density[ind]['ages'][age]['ri'][1] += ri
+
+            population_density[ind]['bp'][1] += bp
+            population_density[ind]['time_infected'][time]['bp'][1] += bp
+            population_density[ind]['ages'][age]['bp'][1] += bp
+
+    sorting_func = lambda x: x['population']
+    population_density.sort(key=sorting_func)
+
+    return population_density
