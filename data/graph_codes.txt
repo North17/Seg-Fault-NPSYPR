@@ -1,4 +1,4 @@
-<x>-<y>-<percentage>-<zone>-<time>
+<x>-<y>-<zone>-<age>-<time>
 
 ===========================================================================
 
@@ -14,8 +14,8 @@ possible values:
 
 
 <y> - y-axis
-several bunches of 6 digits separated by either 'm' multiply (numerator) or 'd' divide (denominator)
-format: <quantity><age-start><age-end><condition>
+several bunches of 2 digits separated  'd' for percentage (in case there are 2 parameters)
+format: <quantity><condition>
 
 
 <quantity>:
@@ -23,8 +23,6 @@ format: <quantity><age-start><age-end><condition>
 1 - deaths
 2 - population density
 
-<age-start>: two digit lower limit for age (included)
-<age-end>: two digit upper limit for age (not included)
 
 <condition>:
 0 - no condition
@@ -41,21 +39,18 @@ format: <quantity><age-start><age-end><condition>
 ===========================================================================
 
 
-
-<percentage> - either 0 or 1
-0 - does not make y-axis a percentage
-1 - makes y-axis percentage (multiplies it by 100)
-
-
-===========================================================================
-
-
 <zone> - three digit number
 
 400 - all zones
 xxx - between 0 and 399, one specific zone
 
 
+
+===========================================================================
+
+<age> - <age_start><age_end> 
+
+two digits each, lower limit included, upper limit not included.
 
 ===========================================================================
 
