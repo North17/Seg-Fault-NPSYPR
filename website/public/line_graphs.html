@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Graphs</title>
+
+    <link rel="stylesheet" href="./line_graphs.css">
+    <script defer src="./line_graphs.js"></script>
+</head>
+<body>
+    <div id="custom">
+        <div class="graph"></div>
+        <form id="form">
+
+            <label for="x">X-AXIS</label><br>
+            <select name="x" id="x">
+                <option value="0">Age</option>
+                <option value="1">Time Infected</option>
+                <option value="2">Population Density</option>
+            </select>
+
+            <br><br>
+            
+            <label for="y">Y-AXIS</label><br>
+            <select name="y" id="y">
+                <option value="0">Cases</option>
+                <option value="1">Deaths</option>
+                <option value="2">Fatality Rate</option>
+                <option value="3" disabled>Infection Rate</option>
+                <option value="4">Recovery Rate</option>
+            </select>
+
+            <br><br>
+
+            <label for="condition">CONDITION</label><br>
+            <select name="condition" id="condition">
+                <option value="0">No Condition</option>
+                <option value="1">Diabetes</option>
+                <option value="2">Respiratory Illnesses</option>
+                <option value="3">Abnormal Blood Pressure</option>
+                <option value="4">Any Two Conditions</option>
+                <option value="5">All Three Conditions</option>
+            </select>
+
+            <br><br>
+
+            AGE:<br>
+            <label for="age_lower">lower limit: </label>
+            <input type="number" min="0" max="89" step="1" value="0" name="age_lower" id="age_lower" disabled>
+            <br>
+            <label for="age_upper">upper limit: </label>
+            <input type="number" min="0" max="89" step="1" value="89" name="age_upper" id="age_upper" disabled>
+
+            <br><br>
+
+
+            <label for="zone">ZONE (zone code between 0 and 399. 400 represents all zones)</label><br>
+            <input type="number" min="0" max="400" step="1" value="400" name="zone" id="zone">
+
+            <br><br>
+
+
+            TIME INFECTED:<br>
+            <label for="time_lower">lower limit: </label>
+            <input type="number" min="0" max="238" step="1" value="0" name="time_lower" id="time_lower">
+            <br>
+            <label for="time_upper">upper limit: </label>
+            <input type="number" min="0" max="238" step="1" value="238" name="time_upper" id="time_upper">
+
+            <br><br>
+
+            <button type="submit">GET GRAPH</button>
+        </form>
+    </div>
+</body>
+</html>
