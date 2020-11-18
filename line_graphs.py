@@ -73,7 +73,7 @@ if x == 0:
     elif y == 4:
         for i in x_axis:
             for j in range(time_start, time_end):
-                sum += (reqlist[i]['time_infected'][j]['total'][0] - reqlist[i]['time_infected'][j]['total'][1]]
+                sum += (reqlist[i]['time_infected'][j]['total'][0] - reqlist[i]['time_infected'][j]['total'][1])
             num.append(sum)
             sum = 0
         for i in x_axis:
@@ -87,27 +87,27 @@ if x == 0:
 # Time Infected as X Axis
 
 if x ==1:
-     if y == 0:
+    if y == 0:
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += reqlist[i]['time_infected'][j]['total'][0]
+                sum += reqlist[i]['ages'][j]['total'][0]
             y_axis.append(sum)
             sum = 0
-    elif y == 1:
+    elif y == 1:    
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += reqlist[i]['time_infected'][j]['total'][1]
+                sum += reqlist[i]['ages'][j]['total'][1]
             y_axis.append(sum)
             sum = 0
     elif y == 2:
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += reqlist[i]['time_infected'][j]['total'][1]
+                sum += reqlist[i]['ages'][j]['total'][1]
             num.append(sum)
             sum = 0
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += reqlist[i]['time_infected'][j]['total'][0]
+                sum += reqlist[i]['ages'][j]['total'][0]
             denom.append(sum)
             sum = 0
         for i in range(len(x_axis)):
@@ -116,16 +116,29 @@ if x ==1:
     elif y == 4:
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += (reqlist[i]['time_infected'][j]['total'][0] - reqlist[i]['time_infected'][j]['total'][1]]
+                sum += (reqlist[i]['ages'][j]['total'][0] - reqlist[i]['ages'][j]['total'][1])
             num.append(sum)
             sum = 0
         for i in x_axis:
             for j in range(age_start, age_end):
-                sum += reqlist[i]['time_infected'][j]['total'][0]
+                sum += reqlist[i]['ages'][j]['total'][0]
             denom.append(sum)
             sum = 0
         for i in range(len(x_axis)):
             y_axis.append((num[i]/denom[i])*100)
+
+# Population Density as X Axis
+
+if x == 2:
+    if y == 0:
+        
+    elif y == 1:
+
+    elif y == 2:
+
+    elif y == 3:
+
+    elif y == 4:
 
 
 
