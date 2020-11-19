@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/line.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/standard_graphs.css') }}">
     <!-- <script defer src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+    
+    <style>
+        #nav ul li:nth-child(1) {
+            opacity: 0.8;
+        }
+    </style>
+
+
 {% endblock %}
 
 {% block body %}
