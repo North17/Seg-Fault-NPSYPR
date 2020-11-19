@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/line.css') }}">
+    <!-- <script defer src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+{% endblock %}
+
+{% block body %}
+
+<h3>LINE GRAPHS</h3>
+
+<div id="graphs">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/CasesVsAge.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/CasesVsPopDensity.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/CasesVsTime.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/FatalityDVsAge.png') }}" title="Diabetics">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/FatalityVsAge.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/FatalityVsPopDensity.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/FatalityVsTime.png') }}">
+    <img src="{{ url_for('static', filename='datareps/linegraphs/InfectionVsPopDensity.png') }}">
+</div>
+
+{% endblock %}

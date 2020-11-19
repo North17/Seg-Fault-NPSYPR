@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index(): 
     return render_template('index.html')
 
+@app.route('/line')
+def line():
+    return render_template('line.html')
+
 @app.route('/custom')
 def custom():
     return render_template('custom.html')
