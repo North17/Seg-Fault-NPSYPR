@@ -185,17 +185,6 @@ try:
         elif y == 2:
             for i in pop_index:
                 for j in range(filterl, filteru):
-                    sum += reqlist[i][filter_by][j][cond][0]
-                num.append(sum)
-                sum = 0
-            for i in pop_index:
-                denom.append(reqlist[i]['population'])
-            for i in pop_index:    
-                y_axis.append((num[i]/denom[i])*100)
-                
-        elif y == 3:
-            for i in pop_index:
-                for j in range(filterl, filteru):
                     sum += reqlist[i][filter_by][j][cond][1]
                 num.append(sum)
                 sum = 0
@@ -203,9 +192,19 @@ try:
                 for j in range(filterl, filteru):
                     sum += reqlist[i][filter_by][j][cond][0]
                 denom.append(sum)
+            for i in pop_index:    
+                y_axis.append((num[i]/denom[i])*100)
+                
+        elif y == 3:
+            for i in pop_index:
+                for j in range(filterl, filteru):
+                    sum += reqlist[i][filter_by][j][cond][0]
+                num.append(sum)
                 sum = 0
             for i in pop_index:
-                y_axis.append((num[i]/denom[i])*100)
+                denom.append(reqlist[i]['population'])
+            for i in pop_index:
+                y_axis.append(num[i]/denom[i])
         elif y == 4:
             for i in pop_index:
                 for j in range(filterl, filteru):
@@ -228,7 +227,7 @@ try:
     plt.xlabel(xl)
     plt.ylabel(yl)
 
-    plt.savefig("InfectionRateVsPopDensity")
+    plt.savefig("InfectionVsPopDensity")
     plt.show()
 except:
     print("lol idk")
