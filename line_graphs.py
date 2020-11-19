@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from data import get_data
 
-ctrstr = "1-1-2-400-0080-000200"
+ctrstr = "2-3-0-400-0090-000239"
 
 params = ctrstr.split('-')
 
@@ -223,11 +223,12 @@ try:
     
     # Finally Plotting:
     
-    plt.plot(x_axis, y_axis)
+    plt.plot(x_axis, y_axis, color = '#5D001E')
 
     plt.xlabel(xl)
     plt.ylabel(yl)
 
+    plt.savefig("InfectionRateVsPopDensity")
     plt.show()
 except:
     print("lol idk")
