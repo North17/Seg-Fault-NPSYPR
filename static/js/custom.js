@@ -47,10 +47,16 @@ x.onchange = e => {
         // time_lower.disabled = false
         // time_upper.disabled = false
         
+        
         zone.disabled = false
         condition.disabled = false
 
         y.children[3].disabled = true  // infection rate
+        if (y.value == '3') {
+            y.value = '0'
+            age_lower.disabled = false
+            age_upper.disabled = false
+        }
     } 
 
     else if (x.value == '1') { // over time infected
@@ -66,6 +72,11 @@ x.onchange = e => {
         condition.disabled = false
 
         y.children[3].disabled = true  // infection rate
+        if (y.value == '3') {
+            y.value = '0'
+            age_lower.disabled = false
+            age_upper.disabled = false
+        }
     } 
 
     else if (x.value == '2') { // over population density
@@ -89,20 +100,33 @@ x.onchange = e => {
     }
 }
 
+y.onchange = e => {
+    if (y.value == '3') {
+        age_lower.value = 0
+        age_upper.value = 89
+        age_lower.disabled = true
+        age_upper.disabled = true
+    }
+    else {
+        age_lower.disabled = false
+        age_upper.disabled = false
+    }
+}
+
 age_lower.onchange = e => {
     if (parseInt(age_upper.value) <= parseInt(age_lower.value))
         age_upper.value = parseInt(age_lower.value) + 1
     
     age_upper.min = parseInt(age_lower.value) + 1
 
-    if (y.value == '3') {
+    if (x.value == '2') {
         time_lower.value = 0
         time_upper.value = 238
     }
 }
 
 age_upper.onchange = e => {
-    if (y.value == '3') {
+    if (x.value == '2') {
         time_lower.value = 0
         time_upper.value = 238
     }
@@ -114,14 +138,14 @@ time_lower.onchange = e => {
     
     time_upper.min = parseInt(time_lower.value) + 1 
 
-    if (y.value == '3') {
+    if (x.value == '2') {
         age_lower.value = 0
         age_upper.value = 89
     }
 }
 
 time_upper.onchange = e => {
-    if (y.value == '3') {
+    if (x.value == '2') {
         age_lower.value = 0
         age_upper.value = 89
     }

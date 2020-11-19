@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Line Graphs</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="./line_graphs.css">
-    <script defer src="./line_graphs.js"></script>
-</head>
-<body>
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <script defer src="{{ url_for('static', filename='js/custom.js') }}"></script>
+{% endblock %}
+
+{% block body %}
     <div id="custom">
         <div class="graph"></div>
         <form id="form">
@@ -47,10 +44,10 @@
 
             AGE:<br>
             <label for="age_lower">lower limit: </label>
-            <input type="number" min="0" max="89" step="1" value="0" name="age_lower" id="age_lower" disabled>
+            <input type="number" min="0" max="89" step="1" value="0" name="age_lower" id="age_lower">
             <br>
             <label for="age_upper">upper limit: </label>
-            <input type="number" min="0" max="89" step="1" value="89" name="age_upper" id="age_upper" disabled>
+            <input type="number" min="0" max="89" step="1" value="89" name="age_upper" id="age_upper">
 
             <br><br>
 
@@ -73,5 +70,4 @@
             <button type="submit">GET GRAPH</button>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
