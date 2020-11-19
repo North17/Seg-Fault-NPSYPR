@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from data import get_data
 
-ctrstr = "1-1-2-189-2040-050101"
+ctrstr = "1-1-2-400-0080-000200"
 
 params = ctrstr.split('-')
 
@@ -49,6 +49,27 @@ elif cond == 4:
     cond = 'two'
 elif cond == 5:
     cond = 'three'
+
+#X Labels
+if x == 0:
+    xl = "Ages"
+elif x == 1:
+    xl = "Time Infected"
+elif x == 2:
+    xl = "Population Density"
+
+#Y Labels
+if y == 0:
+    yl = "Cases"
+elif y == 1:
+    yl = "Deaths"
+elif y == 2:
+    yl = 'Fatality Rate'
+elif y == 3:
+    yl = 'Infection Rate'
+elif y == 4:
+    yl = "Recovery Rate"
+
 
 sum =  0
 num = []
@@ -198,7 +219,15 @@ try:
                 sum = 0
             for i in pop_index:
                 y_axis.append((num[i]/denom[i])*100)
+    
+    
+    # Finally Plotting:
+    
     plt.plot(x_axis, y_axis)
+
+    plt.xlabel(xl)
+    plt.ylabel(yl)
+
     plt.show()
 except:
     print("lol idk")
