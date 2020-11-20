@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEGFAULT 2020 - NPSYPR</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div id="header">
+        <h1>SEG-FAULT 2020</h1>
+        <h2>National Publlic School</h2>
+        <h2>Yeshwanthpur</h2>
+    </div>
+
+    <div id="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/line">Line Graphs</a></li>
+            <li><a href="/heat">Heat Maps</a></li>
+            <li><a href="/infographics">Infographics</a></li>
+            <!-- <li><a href="custom">Custom</a></li> -->
+        </ul>
+    </div>
+
+    {% block body %}{% endblock %}
+</body>
+</html>

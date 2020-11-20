@@ -1,0 +1,22 @@
+h3 {
+    font-size: 180%;
+    text-align: center;
+    margin: 50px 0px 30px;
+}
+
+#graphs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#graphs img {
+    margin: 25px;
+}
+
+@media (max-width: 700px) {
+    #graphs img {
+        max-width: 98vw;
+    }
+}

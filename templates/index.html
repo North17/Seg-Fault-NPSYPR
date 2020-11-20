@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <!-- <script defer src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+{% endblock %}
+
+{% block body %}
+
+<div id="container">
+    <div id="left">
+        <h3>Team members:</h3>
+        <ol>
+            <li>Marc Stanley</li>
+            <li>Rayhaan AR</li>
+            <li>J Hariharan</li>
+        </ol>
+    </div>
+    <div id="right">
+        <p>This is a collection of all the graphs we made. Look around and enjoy!</p>
+    </div>
+</div>
+
+{% endblock %}

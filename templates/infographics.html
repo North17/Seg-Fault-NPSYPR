@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/standard_graphs.css') }}">
+    <!-- <script defer src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+
+    <style>
+        #nav ul li:nth-child(3) {
+            opacity: 0.8;
+        }
+/* 
+        #graphs img {
+            margin: 0;
+        }
+
+        #graphs .graph {
+            margin: 25px;
+        }
+
+        #graphs .graph h4 {
+            margin-left: 50px;
+        } */
+
+        #graphs img {
+            margin: 50px;
+        }
+
+        #graphs img:nth-child(4) {
+            width: 500px;
+        }
+    </style>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+<h3>INFOGRAPHICS</h3>
+
+<div id="graphs">
+    <img src="{{ url_for('static', filename='datareps/infographics/ages.png') }}">
+    <img src="{{ url_for('static', filename='datareps/infographics/delay.png') }}">
+    <img src="{{ url_for('static', filename='datareps/infographics/DeathsVsDelay.png') }}">
+    <img src="{{ url_for('static', filename='datareps/infographics/conditions.png') }}">
+</div>
+
+{% endblock %}
