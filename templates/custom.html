@@ -7,7 +7,9 @@
 
 {% block body %}
     <div id="custom">
-        <div class="graph"></div>
+        <div class="graph">
+            <img src="{{ url_for('static', filename='datareps/custom/'+code+'.png') }}">
+        </div>
         <form id="form">
 
             <label for="x">X-AXIS</label><br>

@@ -1,6 +1,8 @@
 document.querySelector('#form').addEventListener("submit", e => {
     e.preventDefault()
-    console.log(getGraphCode())
+    let code = getGraphCode()
+
+    location.search.code = code
 })
 
 let x = document.querySelector('#x')
